@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect
 import os
-import requests
-import arrow
+from datetime import date
+import urllib
+import json
 
 app = Flask(__name__)
 
@@ -10,19 +11,14 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 @app.route("/")
 def index():
     # Contacting API
-    start = arrow.get('2022-07-19')
-    response = requests.get(
-        'https://api.stormglass.io/v2/weather/point',
-        params = {
-            'lat': 1.2921,
-            'lng': 36.8219,
-            'params': 'airTemperature',
-            'start': start.to('UTC').timestamp(),
-            'end': start.shift(days=1).to('UTC').timestamp()
-        },
-        headers = {
-            'Authorization': os.environ['SG_API_KEY']
-        }
-    )
-    data = response.json()
+    key = os.environ['VC_API_KEY']
+    city = 'nairobi'
+    start = '2022-01-01'
+    end = date.today().strftime('%Y-%m-%d')
+    try:
+        ResultBytes = urllib.request.urlopen('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/nairobi/2022-07-01/2022-07-25?unitGroup=metric&elements=datetime%2Ctemp&include=days%2Cobs%2Cremote&key=Q2K98BYZL7AZELGRZ2C3KBJQ5&contentType=json')
+        data = json.loads(ResultBytes.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        ErrorInfo = e.read().decode() 
+        data = ErrorInfo
     return render_template('index.html', data=data)

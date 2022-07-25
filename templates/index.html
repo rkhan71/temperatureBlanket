@@ -6,6 +6,12 @@
         <title>Temperature Blanket</title>
     </head>
     <body>
-        {{ data }}
+        {% for i in data['days'] %}
+            {% if i['temp'] > 16 and i['temp'] < 17 %}
+                <div style="background-color: lightblue;"><p>{{ i['datetime'] }}</p></div>
+            {% else %}
+                <div style="background-color: red;"><p>{{ i['datetime'] }}</p></div>
+            {% endif %}
+        {% endfor %}
     </body>
 </html>
