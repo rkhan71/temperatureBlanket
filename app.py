@@ -16,7 +16,7 @@ def index():
     start = '2022-01-01'
     end = date.today().strftime('%Y-%m-%d')
     try:
-        ResultBytes = urllib.request.urlopen('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/nairobi/2022-07-01/2022-07-25?unitGroup=metric&elements=datetime%2Ctemp&include=days%2Cobs%2Cremote&key=Q2K98BYZL7AZELGRZ2C3KBJQ5&contentType=json')
+        ResultBytes = urllib.request.urlopen(f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/capetown/2021-12-01/2022-01-01?unitGroup=metric&elements=datetime%2Ctemp&include=days%2Cobs&key={key}&contentType=json')
         data = json.loads(ResultBytes.read().decode('utf-8'))
     except urllib.error.HTTPError as e:
         ErrorInfo = e.read().decode() 
