@@ -6,34 +6,45 @@
         <title>Temperature Blanket</title>
     </head>
     <body>
-        {% if data['days'][0] %}
-            {% for i in data['days'] %}
-                {% if i['temp'] < -20 %}
-                    <div class="purple"></div>
-                {% elif i['temp'] >= -20 and i['temp'] < -10 %}
-                    <div class="dblue"></div>
-                {% elif i['temp'] >= -10 and i['temp'] < 0 %}
-                    <div class="blue"></div>
-                {% elif i['temp'] >= 0 and i['temp'] < 5 %}
-                    <div class="lblue"></div>
-                {% elif i['temp'] >= 5 and i['temp'] < 10 %}
-                    <div class="pblue"></div>
-                {% elif i['temp'] >= 10 and i['temp'] < 15 %}
-                    <div class="pyellow"></div>
-                {% elif i['temp'] >= 15 and i['temp'] < 20 %}
-                    <div class="yellow"></div>
-                {% elif i['temp'] >= 20 and i['temp'] < 25 %}
-                    <div class="orange"></div>
-                {% elif i['temp'] >= 25 and i['temp'] < 30 %}
-                    <div class="pink"></div>
-                {% elif i['temp'] >= 30 and i['temp'] < 40 %}
-                    <div class="red"></div>
-                {% else %}
-                    <div class="dred"></div>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <section style="padding: 10px;">{{ data }}</section>
+        <div class="form"> 
+            <form action="/" method="post">
+                <input name="city" type="text" placeholder="City">
+                <input name="year" type="text" placeholder="Year (YYYY)">
+                <input type="submit">
+            </form>
+        </div>
+        {% if error %}
+            <div class="heading">{{ error }}</div>
         {% endif %}
+        <div class="heading">
+            <p><h3>{{ addy }}</h3></p>
+            <p>{{ year }}</p>
+        </div>
+        {% for i in temps %}
+            {% if i < -20 %}
+                <div class="purple"></div>
+            {% elif i >= -20 and i < -10 %}
+                <div class="dblue"></div>
+            {% elif i >= -10 and i < 0 %}
+                <div class="blue"></div>
+            {% elif i >= 0 and i < 5 %}
+                <div class="lblue"></div>
+            {% elif i >= 5 and i < 10 %}
+                <div class="pblue"></div>
+            {% elif i >= 10 and i < 15 %}
+                <div class="pyellow"></div>
+            {% elif i >= 15 and i < 20 %}
+                <div class="yellow"></div>
+            {% elif i >= 20 and i < 25 %}
+                <div class="orange"></div>
+            {% elif i >= 25 and i < 30 %}
+                <div class="pink"></div>
+            {% elif i >= 30 and i < 40 %}
+                <div class="red"></div>
+            {% else %}
+                <div class="dred"></div>
+            {% endif %}
+        {% endfor %}
+        <section style="padding: 10px;">{{ data }}</section>
     </body>
 </html>
