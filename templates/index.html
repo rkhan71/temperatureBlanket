@@ -2,7 +2,8 @@
 
 <html lang="en">
     <head>
-        <link href="/static/styles.css" rel="stylesheet">
+        <link href="/static/layout.css" rel="stylesheet">
+        <link href="/static/colors.css" rel="stylesheet">
         <title>Temperature Blanket</title>
     </head>
     <body>
@@ -13,92 +14,163 @@
                 <input type="submit">
             </form>
         </div>
-        <div class="table">
-            <table>
-                <tr>
-                    <th>Temperature Range (&#176;C)</th>
-                    <th>Color</th>
-                </tr>
-                <tr>
-                    <td><-20</td>
-                    <td class="purple"></td>
-                </tr>
-                <tr>
-                    <td>-20 - -10</td>
-                    <td class="dblue"></td>
-                </tr>
-                <tr>
-                    <td>-10 - 0</td>
-                    <td class="blue"></td>
-                </tr>
-                <tr>
-                    <td>0 - 5</td>
-                    <td class="lblue"></td>
-                </tr>
-                <tr>
-                    <td>5 - 10</td>
-                    <td class="pblue"></td>
-                </tr>
-                <tr>
-                    <td>10 - 15</td>
-                    <td class="pyellow"></td>
-                </tr>
-                <tr>
-                    <td>15 - 20</td>
-                    <td class="yellow"></td>
-                </tr>
-                <tr>
-                    <td>20 - 25</td>
-                    <td class="orange"></td>
-                </tr>
-                <tr>
-                    <td>25 - 30</td>
-                    <td class="pink"></td>
-                </tr>
-                <tr>
-                    <td>30 - 40</td>
-                    <td class="red"></td>
-                </tr>
-                <tr>
-                    <td>>40</td>
-                    <td class="dred"></td>
-                </tr>
-            </table>
-        </div>
         {% if error %}
             <div class="heading">{{ error }}</div>
         {% endif %}
-        <div class="heading">
-            <p><h3>{{ addy }}</h3></p>
-            <p>{{ year }}</p>
-        </div>
-        {% for i in temps %}
-            {% if i < -20 %}
-                <div class="purple"></div>
-            {% elif i >= -20 and i < -10 %}
-                <div class="dblue"></div>
-            {% elif i >= -10 and i < 0 %}
-                <div class="blue"></div>
-            {% elif i >= 0 and i < 5 %}
-                <div class="lblue"></div>
-            {% elif i >= 5 and i < 10 %}
-                <div class="pblue"></div>
-            {% elif i >= 10 and i < 15 %}
-                <div class="pyellow"></div>
-            {% elif i >= 15 and i < 20 %}
-                <div class="yellow"></div>
-            {% elif i >= 20 and i < 25 %}
-                <div class="orange"></div>
-            {% elif i >= 25 and i < 30 %}
-                <div class="pink"></div>
-            {% elif i >= 30 and i < 40 %}
-                <div class="red"></div>
-            {% else %}
-                <div class="dred"></div>
-            {% endif %}
-        {% endfor %}
-        <script>
-            console.log(document.styleSheets)
-        </script>
+        {% if temps %}
+            <div class="table">
+                <h3>Key</h3>
+                <table>
+                    <tr>
+                        <th>Temperature Range (&#176;C)</th>
+                        <th>Color</th>
+                        <th>Change Color</th>
+                    </tr>
+                    <tr>
+                        <td><-20</td>
+                        <td class="purple"></td>
+                        <td>
+                            <form id="f1">
+                                <input type="text" id="i1">    
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>-20 - -10</td>
+                        <td class="dblue"></td>
+                        <td>
+                            <form id="f2">
+                                <input type="text" id="i2">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>-10 - 0</td>
+                        <td class="blue"></td>
+                        <td>
+                            <form id="f3">
+                                <input type="text" id="i3">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>0 - 5</td>
+                        <td class="lblue"></td>
+                        <td>
+                            <form id="f4">
+                                <input type="text" id="i4">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5 - 10</td>
+                        <td class="pblue"></td>
+                        <td>
+                            <form id="f5">
+                                <input type="text" id="i5">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10 - 15</td>
+                        <td class="pyellow"></td>
+                        <td>
+                            <form id="f6">
+                                <input type="text" id="i6">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15 - 20</td>
+                        <td class="yellow"></td>
+                        <td>
+                            <form id="f7">
+                                <input type="text" id="i7">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>20 - 25</td>
+                        <td class="orange"></td>
+                        <td>
+                            <form id="f8">
+                                <input type="text" id="i8">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>25 - 30</td>
+                        <td class="pink"></td>
+                        <td>
+                            <form id="f9">
+                                <input type="text" id="i9">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>30 - 40</td>
+                        <td class="red"></td>
+                        <td>
+                            <form id="f10">
+                                <input type="text" id="i10">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>>40</td>
+                        <td class="dred"></td>
+                        <td>
+                            <form id="f11">
+                                <input type="text" id="i11">
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="heading">
+                <p><h3>{{ addy }}</h3></p>
+                <p>{{ year }}</p>
+            </div>
+            {% for i in temps %}
+                {% if i < -20 %}
+                    <div class="purple"></div>
+                {% elif i >= -20 and i < -10 %}
+                    <div class="dblue"></div>
+                {% elif i >= -10 and i < 0 %}
+                    <div class="blue"></div>
+                {% elif i >= 0 and i < 5 %}
+                    <div class="lblue"></div>
+                {% elif i >= 5 and i < 10 %}
+                    <div class="pblue"></div>
+                {% elif i >= 10 and i < 15 %}
+                    <div class="pyellow"></div>
+                {% elif i >= 15 and i < 20 %}
+                    <div class="yellow"></div>
+                {% elif i >= 20 and i < 25 %}
+                    <div class="orange"></div>
+                {% elif i >= 25 and i < 30 %}
+                    <div class="pink"></div>
+                {% elif i >= 30 and i < 40 %}
+                    <div class="red"></div>
+                {% else %}
+                    <div class="dred"></div>
+                {% endif %}
+            {% endfor %}
+            <script>
+                const forms = [document.getElementById("f1"), document.getElementById("f2"), document.getElementById("f3"), document.getElementById("f4"), document.getElementById("f5"), document.getElementById("f6"), document.getElementById("f7"), document.getElementById("f8"), document.getElementById("f9"), document.getElementById("f10"), document.getElementById("f11")]
+                const inputs = [document.getElementById("i1"), document.getElementById("i2"), document.getElementById("i3"), document.getElementById("i4"), document.getElementById("i5"), document.getElementById("i6"), document.getElementById("i7"), document.getElementById("i8"), document.getElementById("i9"), document.getElementById("i10"), document.getElementById("i11")]
+                css = document.styleSheets[1];
+                rules = css.cssRules;
+                for (let i = 0; i < 11; i++) {
+                    forms[i].addEventListener("submit", function(event) {
+                        event.preventDefault();
+                        selector = rules[i].selectorText;
+                        color = inputs[i].value;
+                        css.deleteRule(i);
+                        css.insertRule(`${selector} { background-color: ${color}; }`, i);
+                    });
+                }
+            </script>
+        {% endif %}
     </body>
 </html>

@@ -1,39 +1,3 @@
-body {
-    padding: 0px;
-    margin: 0px;
-}
-
-.form {
-    text-align: center;
-    padding: 10px;
-    height: auto;
-    width: auto;
-}
-
-.heading {
-    text-align: center;
-    padding: 10px;
-    height: auto;
-    width: auto;
-}
-
-.table {
-    padding: 10px;
-    height: auto;
-    width: 100%;
-}
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-div {
-    width: 100%;
-    height: 10px;
-}
-
 .purple {
     background-color: blueviolet;
 }

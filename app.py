@@ -40,6 +40,6 @@ def index():
         addy = data['resolvedAddress']
 
         # Pass in relevant data
-        return render_template('index.html', data=data, year=year, temps=temps, addy=addy)
+        return render_template('index.html', year=year, temps=temps, addy=addy)
     else:
         return render_template('index.html')
