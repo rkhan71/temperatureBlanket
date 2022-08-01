@@ -13,6 +13,58 @@
                 <input type="submit">
             </form>
         </div>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Temperature Range (&#176;C)</th>
+                    <th>Color</th>
+                </tr>
+                <tr>
+                    <td><-20</td>
+                    <td class="purple"></td>
+                </tr>
+                <tr>
+                    <td>-20 - -10</td>
+                    <td class="dblue"></td>
+                </tr>
+                <tr>
+                    <td>-10 - 0</td>
+                    <td class="blue"></td>
+                </tr>
+                <tr>
+                    <td>0 - 5</td>
+                    <td class="lblue"></td>
+                </tr>
+                <tr>
+                    <td>5 - 10</td>
+                    <td class="pblue"></td>
+                </tr>
+                <tr>
+                    <td>10 - 15</td>
+                    <td class="pyellow"></td>
+                </tr>
+                <tr>
+                    <td>15 - 20</td>
+                    <td class="yellow"></td>
+                </tr>
+                <tr>
+                    <td>20 - 25</td>
+                    <td class="orange"></td>
+                </tr>
+                <tr>
+                    <td>25 - 30</td>
+                    <td class="pink"></td>
+                </tr>
+                <tr>
+                    <td>30 - 40</td>
+                    <td class="red"></td>
+                </tr>
+                <tr>
+                    <td>>40</td>
+                    <td class="dred"></td>
+                </tr>
+            </table>
+        </div>
         {% if error %}
             <div class="heading">{{ error }}</div>
         {% endif %}
@@ -45,6 +97,8 @@
                 <div class="dred"></div>
             {% endif %}
         {% endfor %}
-        <section style="padding: 10px;">{{ data }}</section>
+        <script>
+            console.log(document.styleSheets)
+        </script>
     </body>
 </html>

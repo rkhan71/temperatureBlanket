@@ -23,7 +23,7 @@ def index():
             return render_template('index.html')
         city = request.form.get('city')
         start = request.form.get('year') + '-01-01'
-        end = request.form.get('year') + '-12-31'
+        end = request.form.get('year') + '-01-31'
 
         # Get data from API 
         key = os.environ['VC_API_KEY']
